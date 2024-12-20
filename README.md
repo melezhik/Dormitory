@@ -39,7 +39,7 @@ Hurrah, you have microservice cluster consists of 3 nodes and 3 microservices, w
                                 |  http traffic      
                                 |
                    ----- [ master node ] ----- 
-                 /                             \ 
+                /                              \ 
                /                                \       
               /                                  \
       [hostB node]                            [hostC node]
