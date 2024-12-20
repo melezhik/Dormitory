@@ -45,4 +45,7 @@ Hurrah, you have microservice cluster consists of 3 nodes and 3 microservices, w
       [hostB node]                            [hostC node]
     /      |      \                          /     |      \
    srv1   srv2    srv3                      srv1  srv2   srv3
+                    \_----->[ master node ]<-------/
+
+                http traffic between micro servers
 ```
