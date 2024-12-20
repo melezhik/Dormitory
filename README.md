@@ -7,26 +7,30 @@ Dead simple microservice framework
 ```
 ssh hostA
 zef install --/test Dormitory
-dorm node init --master # bring up master node
+dorm node init --master # up master node
 ssh hostB
 zef install --/test Dormitory
-dorm node init # bring up regular node
+dorm node init # up regular node
 ssh hostC
 zef install --/test Dormitory
-dorm node init # bring up regular node
+dorm node init # up regular node
 ```
 
 ```
 # on master node
 firefox 127.0.0.1:3000 # master node web UI
 # start config job, point hostA, hostB nodes
-# add service1 (git URL_service1)
-# add service1 (git URL_service2)
-# add service1 (git URL_service3)
+
+# deploy some services
+# start service_add job
+
+# add service1 (git URL for service1)
+# add service1 (git URL for service2)
+# add service1 (git URL for service3)
 # so on
 ```
 
-Hurrah, you have microservice cluster consists of 3 nodes and 3 microservices:
+Hurrah, you have microservice cluster consists of 3 nodes and 3 microservices, with master node as a load balancer:
 
 
 ```
