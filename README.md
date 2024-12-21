@@ -9,7 +9,7 @@ Dead simple dockerless microservice framework
 * CICD backed in
 * Nice UI for everything
 * Load balancer (nginx) backed in
-* Horizontal scaling at easy 
+* Horizontal scaling at ease
 
 # How to
 
