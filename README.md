@@ -10,6 +10,7 @@ Dead simple dockerless microservice framework
 * Nice UI for everything
 * Load balancer (nginx) backed in
 * Horizontal scaling at ease
+* Extended with Rakulang 
 
 # How to
 
