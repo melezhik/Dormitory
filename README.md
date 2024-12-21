@@ -2,6 +2,15 @@
 
 Dead simple dockerless microservice framework
 
+# Key features
+
+* Dead simple deploy, no yaml hassle
+* Dockerfree. Just build from source code
+* CICD backed in
+* Nice UI for everything
+* Load balancer (nginx) backed in
+* Horizontal scaling at easy 
+
 # How to
 
 ```
