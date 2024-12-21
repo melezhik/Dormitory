@@ -19,7 +19,7 @@ dorm node init # up regular node
 ```
 # on master node
 firefox 127.0.0.1:3000 # master node web UI
-# start config job, point hostA, hostB nodes
+# start config job, point hostB, hostC nodes
 
 # deploy some services
 # start service_add job
