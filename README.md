@@ -1,6 +1,6 @@
 # Dormitory
 
-Dead simple microservice framework
+Dead simple dockerless microservice framework
 
 # How to
 
