@@ -25,9 +25,16 @@ firefox 127.0.0.1:3000 # master node web UI
 # start service_add job
 
 # add service1 (git URL for service1)
-# add service1 (git URL for service2)
-# add service1 (git URL for service3)
+# add service2 (git URL for service2)
+# add service3 (git URL for service3)
 # so on
+
+# change source code for service1,2,3
+# commit to git
+# dorm will pick up new changes
+# make build and deploy it all
+# nodes
+
 ```
 
 Hurrah, you have microservice cluster consists of 3 nodes and 3 microservices, with master node as a load balancer:
