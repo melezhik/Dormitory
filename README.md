@@ -20,10 +20,10 @@ zef install --/test Dormitory
 dorm node init --master # up master node
 ssh hostB
 zef install --/test Dormitory
-dorm node init # up regular node
+dorm node init # up worker node
 ssh hostC
 zef install --/test Dormitory
-dorm node init # up regular node
+dorm node init # up worker node
 ```
 
 ```
@@ -42,8 +42,8 @@ firefox 127.0.0.1:3000 # master node web UI
 # change source code for service1,2,3
 # commit to git
 # dorm will pick up new changes
-# make build and deploy it all
-# nodes
+# make build and deploy it
+# to all worker nodes
 
 ```
 
