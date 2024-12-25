@@ -20,10 +20,10 @@ zef install --/test Dormitory
 dorm node init --master # up master node
 ssh hostB
 zef install --/test Dormitory
-dorm node init # up worker node
+dorm node init --worker # up worker node
 ssh hostC
 zef install --/test Dormitory
-dorm node init # up worker node
+dorm node init --worker # up worker node
 ```
 
 ```
