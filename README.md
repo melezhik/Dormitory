@@ -32,7 +32,8 @@ firefox 127.0.0.1:3000 # master node web UI
 # start config job, point hostB, hostC nodes
 
 # deploy some services
-# start service_add job
+# go to master node UI (http://127.0.0.1:3000)
+# run config cluster job -> add/configure services
 
 # add service1 (git URL for service1)
 # add service2 (git URL for service2)
@@ -42,8 +43,8 @@ firefox 127.0.0.1:3000 # master node web UI
 # change source code for service1,2,3
 # commit to git
 # dorm will pick up new changes
-# make build and deploy it
-# to all worker nodes
+# make a new build
+# and deploy it to all worker nodes
 
 ```
 
