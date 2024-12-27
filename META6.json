@@ -1,0 +1,26 @@
+{
+  "auth": "zef:melezhik",
+  "authors" : [
+    "Alexey Melezhik"
+  ],
+  "build-depends" : [ ],
+  "depends" : [
+  ],
+  "description" : "Dead simple dockerless microservice framework",
+  "license" : "Artistic-2.0",
+  "name" : "Dormitory",
+  "perl" : "6.*",
+  "provides" : {
+    "Dormitory" : "lib/Dormitory.rakumod"
+  },
+  "resources" : [ ],
+  "source-type" : "git",
+  "source-url" : "https://github.com/melezhik/Dormitory.git",
+  "support" : {
+    "bugtracker" : "https://github.com/melezhik/Dormitory/issues",
+    "source" : "https://github.com/melezhik/Dormitory.git"
+  },
+  "tags" : [ ],
+  "test-depends" : [ ],
+  "version" : "0.0.1"
+}
