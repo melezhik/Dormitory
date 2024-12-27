@@ -1,11 +1,44 @@
 #!raku
 
+use Dormitory;
+
 sub MAIN(
-  Str   $file where *.IO.f = 'file.dat',
-  Int  :$length = 24,
-  Bool :$verbose
+  Str   $object,
+  Str   $action,
+  Bool :$verbose?,
+  Bool :$master?,
+  Bool :$worker?,
 ) {
-    say $length if $length.defined;
-    say $file   if $file.defined;
-    say 'Verbosity ', ($verbose ?? 'on' !! 'off');
+
+    say "object: $object";
+    say "action: $action";
+
+    my $dorm-base-dir = "{%*ENV<HOME>}/.dorm";
+    mkdir $dorm-base-dir;
+    mkdir "$dorm-base-dir/sparky";
+    mkdir "$dorm-base-dir/sparky/logs";
+    mkdir "$dorm-base-dir/sparky/pids";
+
+    if ($action eq "init") {
+        if $verbose {
+          say "copy {sparky-dist-path()} to $dorm-base-dir/sparky/sparky.tar.gz";
+        }
+        copy 
+          sparky-dist-path(), 
+          "$dorm-base-dir/sparky/sparky.tar.gz";
+        say "unpacking sparky.tar.gz" if $verbose;
+        shell "cd $dorm-base-dir/sparky/ && tar -xzf sparky.tar.gz";
+        say "init sparky database" if $verbose;
+        shell "if ! test -f ~/.sparky/projects/db.sqlite3; then cd $dorm-base-dir/sparky/dist && raku db-init.raku; fi";
+        say "stop sparky-web" if $verbose;
+        shell "cd $dorm-base-dir/sparky/dist; if test -f sparky-web.pid; then kill \$(cat ../pids/sparky-web.pid); fi";
+        say "start sparky-web" if $verbose;
+        shell "cd $dorm-base-dir/sparky/dist; nohup cro run 1>../logs/sparky.log 2>&1 </dev/null & echo \$? > ../pids/sparky-web.pid";
+        say "logs are available at $dorm-base-dir/logs" if $verbose;
+        say "/////////////////////////////////////////////";
+        say "Dorm UI is avaibale at http://127.0.0.1:4000";
+        say "/////////////////////////////////////////////";
+    } else {
+      die "unknown action $action"
+    }
 }

@@ -13,7 +13,9 @@
   "provides" : {
     "Dormitory" : "lib/Dormitory.rakumod"
   },
-  "resources" : [ ],
+  "resources" : [ 
+    "sparky/dist.tar.gz"
+  ],
   "source-type" : "git",
   "source-url" : "https://github.com/melezhik/Dormitory.git",
   "support" : {
