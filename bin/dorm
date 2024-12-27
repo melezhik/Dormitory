@@ -1,0 +1,11 @@
+#!raku
+
+sub MAIN(
+  Str   $file where *.IO.f = 'file.dat',
+  Int  :$length = 24,
+  Bool :$verbose
+) {
+    say $length if $length.defined;
+    say $file   if $file.defined;
+    say 'Verbosity ', ($verbose ?? 'on' !! 'off');
+}
