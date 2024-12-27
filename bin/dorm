@@ -19,7 +19,7 @@ sub MAIN(
     mkdir "$dorm-base-dir/sparky/logs";
     mkdir "$dorm-base-dir/sparky/pids";
 
-    if ($action eq "init") {
+    if ($action eq "init" && $object eq "node") {
         if $verbose {
           say "copy {sparky-dist-path()} to $dorm-base-dir/sparky/sparky.tar.gz";
         }
@@ -35,12 +35,20 @@ sub MAIN(
         say "stop sparky-web" if $verbose;
         shell "cd $dorm-base-dir/sparky/dist; if test -f sparky-web.pid; then kill \$(cat ../pids/sparky-web.pid); fi";
         say "start sparky-web" if $verbose;
-        shell "cd $dorm-base-dir/sparky/dist; nohup cro run 1>../logs/sparky.log 2>&1 </dev/null & echo \$? > ../pids/sparky-web.pid";
+        shell "cd $dorm-base-dir/sparky/dist; nohup raku bin/sparky-web.raku 1>../logs/sparky.log 2>&1 </dev/null & echo \$! > ../pids/sparky-web.pid";
         say "logs are available at $dorm-base-dir/logs" if $verbose;
         say "/////////////////////////////////////////////";
         say "Dorm UI is avaibale at http://127.0.0.1:4000";
         say "/////////////////////////////////////////////";
+        say "stop sparkyd" if $verbose;
+        shell "cd $dorm-base-dir/sparky/dist; if test -f sparkyd.pid; then kill \$(cat ../pids/sparkyd.pid); fi";
+        say "start sparkyd" if $verbose;
+        shell "cd $dorm-base-dir/sparky/dist; nohup sparkyd 1>../logs/sparkyd.log 2>&1 </dev/null & echo \$! > ../pids/sparkyd.pid";
+        say "logs are available at $dorm-base-dir/logs" if $verbose;
+        say "/////////////////////////////////////////////";
+        say "sparkyd successfully run";
+        say "/////////////////////////////////////////////";
     } else {
-      die "unknown action $action"
+      die "unknown action $action on object $object"
     }
 }
