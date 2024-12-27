@@ -28,8 +28,10 @@ sub MAIN(
           "$dorm-base-dir/sparky/sparky.tar.gz";
         say "unpacking sparky.tar.gz" if $verbose;
         shell "cd $dorm-base-dir/sparky/ && tar -xzf sparky.tar.gz";
+        say "install sparky" if $verbose;
+        shell "cd $dorm-base-dir/sparky/dist && zef install --/test .";
         say "init sparky database" if $verbose;
-        shell "if ! test -f ~/.sparky/projects/db.sqlite3; then cd $dorm-base-dir/sparky/dist && raku db-init.raku; fi";
+        shell "if ! test -f ~/.sparky/projects/db.sqlite3; then cd $dorm-base-dir/sparky/dist && raku db-init.raku; else echo 'database already initialized'; fi";
         say "stop sparky-web" if $verbose;
         shell "cd $dorm-base-dir/sparky/dist; if test -f sparky-web.pid; then kill \$(cat ../pids/sparky-web.pid); fi";
         say "start sparky-web" if $verbose;
